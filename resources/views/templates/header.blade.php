@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
-
+    <link rel="stylesheet" href="{{'css/style.css'}}">
     <script>
         var baseUrl = '{{ url("") }}';
     </script>
@@ -15,4 +15,4 @@
 </head>
 <body>
 
-    
+
