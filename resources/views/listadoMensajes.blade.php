@@ -4,9 +4,9 @@
 @endphp
 
 <div>
-    <h1>Mensajes del chat. Bienvenido {{ $nombre }}</h1>
+    <h1>Mensajes del chat. Bienvenid@ {{ $nombre }}</h1>
     <div id="contenedorMensajes">
-        
+
     </div>
 
     <input type="text" id="textoUsuario" name="textoUsuario" />
