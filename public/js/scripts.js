@@ -19,9 +19,14 @@ function obtenerMensajes()
         url: baseUrl + '/obtenerMensajes',
         success: function(respuesta)
         {
-            console.log(respuesta);
             var mensajes = JSON.parse(respuesta);
-            console.log("El mensaje 0 es " + mensajes[0]['texto']);
+
+            $('#contenedorMensajes').html('');
+
+            for (var i=0; i<mensajes.length; i++)
+            {
+                $('#contenedorMensajes').append(mensajes[i]['texto']) + '<br>';
+            }
         }
     });
 }
