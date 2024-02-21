@@ -44,6 +44,8 @@ class MensajesController extends Controller
 
     public function obtenerMensajes()
     {
-        // $mensajes = DB::select();
+        $mensajes = DB::select('SELECT * FROM mensajes');
+        $mensajesJson = json_encode($mensajes);
+        echo $mensajesJson;
     }
 }
