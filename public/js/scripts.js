@@ -1,4 +1,3 @@
-
 function enviarMensaje() {
     var texto = $('#textoUsuario').val();
 
