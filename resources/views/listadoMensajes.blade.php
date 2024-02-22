@@ -12,4 +12,5 @@
     <input type="text" id="textoUsuario" name="textoUsuario" />
     <button onclick="enviarMensaje()">Enviar</button>
     <button onclick="obtenerMensajes()">Actualizar mensajes</button>
+    <a href="{{ url('usuario') }}"><button>Cerrar sesión</button></a>
 </div>
