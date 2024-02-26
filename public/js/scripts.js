@@ -14,18 +14,27 @@ function enviarMensaje() {
 
 function obtenerMensajes()
 {
-    $.ajax({
-        url: baseUrl + '/obtenerMensajes',
-        success: function(respuesta)
-        {
-            var mensajes = JSON.parse(respuesta);
+    $(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                url: baseUrl + '/obtenerMensajes',
+                type: 'GET',
+                success: function(respuesta) {
+                    // Manipular los datos recibidos y mostrarlos en la página
+                    var mensajes = JSON.parse(respuesta);
 
-            $('#contenedorMensajes').html('');
+                    $('#contenedorMensajes').html('');
 
-            for (var i=0; i<mensajes.length; i++)
-            {
-                $('#contenedorMensajes').append(mensajes[i]['texto']) + '<br>';
-            }
-        }
+                    for (var i=0; i<mensajes.length; i++)
+                    {
+                        $('#contenedorMensajes').append(mensajes[i]['texto']) + '<br>';
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }, 5000);
     });
+
 }
