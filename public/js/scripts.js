@@ -26,9 +26,9 @@ function obtenerMensajes()
                     contenedorMensajes.html('');
 
                     for (var i = 0; i < mensajes.length; i++) {
-                        contenedorMensajes.append('<li class="list-group-item">' + mensajes[i].usuario + '</li>');
+                        contenedorMensajes.append('<li class="list-group-item">' + 'Usuario: ' + mensajes[i].usuario + '</li>');
                         contenedorMensajes.append('<li class="list-group-item">' + mensajes[i].texto + '</li>');
-                        contenedorMensajes.append('<li class="list-group-item">' + mensajes[i].created_at + '</li>');
+                        contenedorMensajes.append('<li class="list-group-item">' + 'Fecha y hora: ' + mensajes[i].created_at + '</li>');
                     }
                 }
             });
