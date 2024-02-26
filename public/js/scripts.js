@@ -33,19 +33,3 @@ function obtenerMensajes()
         }, 5000);
     });
 }
-
-function obtenerUltimoMensaje ()
-{
-    $(document).ready(function() {
-        setInterval(function() {
-            $.ajax({
-                url: baseUrl + '/obtenerUltimoMensaje',
-                method: 'GET',
-                succes: function() {
-                    var contenedorMensajes = $('#contenedorMensajes');
-                    contenedorMensajes.html('');
-                }
-            });
-        })
-    })
-}
