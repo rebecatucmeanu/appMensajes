@@ -25,3 +25,4 @@ Route::post('/login', [UsuariosController::class, 'registrarSesion']);
 Route::get('/listado', [MensajesController::class, 'mostrarMensajes']);
 Route::get('/enviarMensaje', [MensajesController::class, 'enviarMensaje']);
 Route::get('/obtenerMensajes', [MensajesController::class, 'obtenerMensajes']);
+Route::get('/obtenerUltimoMensaje', [MensajesController::class, 'obtenerUltimoMensaje']);

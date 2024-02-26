@@ -39,16 +39,11 @@ function obtenerUltimoMensaje ()
     $(document).ready(function() {
         setInterval(function() {
             $.ajax({
-                url: basUel + '/obtenerUltimoMensaje',
-                method: GET,
-                succes: function(respuesta) {
-                    var mensajes = JSON.parse(respuesta);
+                url: baseUrl + '/obtenerUltimoMensaje',
+                method: 'GET',
+                succes: function() {
                     var contenedorMensajes = $('#contenedorMensajes');
                     contenedorMensajes.html('');
-
-                    for (var i = 0; i < mensajes.length; i++) {
-                        contenedorMensajes.append('<li class="list.group.item">' + mensajes[i].texto + '</li>')
-                    }
                 }
             });
         })
