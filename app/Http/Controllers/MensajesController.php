@@ -51,7 +51,7 @@ class MensajesController extends Controller
 
     public function obtenerUltimoMensaje()
     {
-        $mensajes = DB::select('SELECT * FROM mensajes');
+        $mensajes = DB::select('SELECT * FROM mensajes ORDER BY id LIMIT 1');
         $mensajesJson = json_encode($mensajes);
         echo $mensajesJson;
     }

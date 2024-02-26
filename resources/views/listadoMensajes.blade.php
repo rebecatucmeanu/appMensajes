@@ -18,5 +18,6 @@
 
     <button onclick="enviarMensaje()">Enviar</button>
     <button onclick="obtenerMensajes()">Actualizar mensajes</button>
+    <button onclick="obtenerUltimoMensaje()">Ver sólo el último mensaje</button>
     <a href="{{ url('usuario') }}"><button>Cerrar sesión</button></a>
 </div>
