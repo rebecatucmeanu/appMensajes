@@ -44,6 +44,13 @@ class MensajesController extends Controller
 
     public function obtenerMensajes()
     {
+        $mensajes = DB::select('SELECT * FROM mensajes ORDER BY created_at DESC LIMIT 10');
+        $mensajesJson = json_encode($mensajes);
+        echo $mensajesJson;
+    }
+
+    public function obtenerUltimoMensaje()
+    {
         $mensajes = DB::select('SELECT * FROM mensajes');
         $mensajesJson = json_encode($mensajes);
         echo $mensajesJson;

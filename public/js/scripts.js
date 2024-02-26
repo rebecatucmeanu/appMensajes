@@ -1,4 +1,5 @@
-function enviarMensaje() {
+function enviarMensaje()
+{
     var texto = $('#textoUsuario').val();
 
     $.ajax({
@@ -18,23 +19,17 @@ function obtenerMensajes()
         setInterval(function() {
             $.ajax({
                 url: baseUrl + '/obtenerMensajes',
-                type: 'GET',
+                method: 'GET',
                 success: function(respuesta) {
-                    // Manipular los datos recibidos y mostrarlos en la página
                     var mensajes = JSON.parse(respuesta);
+                    var contenedorMensajes = $('#contenedorMensajes');
+                    contenedorMensajes.html('');
 
-                    $('#contenedorMensajes').html('');
-
-                    for (var i=0; i<mensajes.length; i++)
-                    {
-                        $('#contenedorMensajes').append(mensajes[i]['texto']) + '<br>';
+                    for (var i = 0; i < mensajes.length; i++) {
+                        contenedorMensajes.append('<li class="list-group-item">' + mensajes[i].texto + '</li>');
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
                 }
             });
         }, 5000);
     });
-
 }
