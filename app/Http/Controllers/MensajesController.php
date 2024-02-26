@@ -26,6 +26,17 @@ class MensajesController extends Controller
         // Creamos una variable vacía de tipo Mensaje
         $mensaje = new Mensaje();
 
+        // Si el mensaje es una imagen, guardar en la columna imagen
+        // Si el mensaje es un video, guardar en la columna video
+        // Si no, guardar en la columna del texto
+        if (strrpos($texto, '.jpg') !== false || strrpos($texto, '.png') !== false || strrpos($texto, '.jpeg') !== false) {
+            $mensaje->imagen = $texto;
+        } else if (strrpos($texto, '.mp4') !== false || strrpos($texto, '.avi') !== false || strrpos($texto, '.mov') !== false) {
+            $mensaje->video = $texto;
+        } else {
+            $mensaje->texto = $texto;
+        }
+
         // Asignamos la variable para el campo texto
         $mensaje->texto = $texto;
 
