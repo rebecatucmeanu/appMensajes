@@ -43,8 +43,6 @@ class UsuariosController extends Controller
     public function cerrarSesion(Session $session)
     {
         $session->flush();
-        return  view('templates/header').
-                view('acceso').
-                view('templates/footer');
+        return redirect('/');
     }
 }

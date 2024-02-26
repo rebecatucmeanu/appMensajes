@@ -5,7 +5,7 @@ function enviarMensaje()
     $.ajax({
         url: baseUrl + '/enviarMensaje',
         method: 'get',
-        data: { mensajeEnvio: texto },
+        data: { mensajeEnvio: texto + "'"},
         success: function(respuesta) {
             alert(respuesta);
             obtenerMensajes();
@@ -13,38 +13,28 @@ function enviarMensaje()
     });
 }
 
-function obtenerMensajes()
-{
-    $(document).ready(function() {
-        setInterval(function() {
-            $.ajax({
-                url: baseUrl + '/obtenerMensajes',
-                method: 'GET',
-                success: function(respuesta) {
-                    var mensajes = JSON.parse(respuesta);
-                    var contenedorMensajes = $('#contenedorMensajes');
-                    contenedorMensajes.html('');
+function obtenerMensajes() {
+        $.ajax({
+            url: baseUrl + '/obtenerMensajes',
+            method: 'GET',
+            success: function(respuesta) {
+                var mensajes = JSON.parse(respuesta);
+                var contenedorMensajes = $('#contenedorMensajes');
+                contenedorMensajes.html('');
 
-                    for (var i = 0; i < mensajes.length; i++) {
-                        var mensaje = mensajes[i];
-                        contenedorMensajes.append('<li class="list-group-item">' + 'Usuario: ' + mensaje.usuario + '</li>');
-                        contenedorMensajes.append('<li class="list-group-item">' + 'Fecha y hora: ' + mensaje.created_at + '</li>');
+                for (var i = 0; i < mensajes.length; i++) {
+                    var mensaje = mensajes[i];
+                    contenedorMensajes.append('<li class="list-group-item">' + 'Usuario: ' + mensaje.usuario + '</li>');
+                    contenedorMensajes.append('<li class="list-group-item">' + 'Fecha y hora: ' + mensaje.created_at + '</li>');
 
-                        if (mensaje.imagen) {
-                            contenedorMensajes.append('<li class="list-group-item">' + '<img src="' + mensaje.imagen + '" alt="Imagen" />' + '</li>');
-                        } else if (mensaje.video) {
-                            contenedorMensajes.append('<li class="list-group-item">' + '<iframe src=" ' + mensaje.video + '"></iframe>' + '</li>');
-                        } else {
-                            contenedorMensajes.append('<li class="list-group-item">' + mensaje.texto + '</li>');
-                        }
+                    if (mensaje.imagen) {
+                        contenedorMensajes.append('<li class="list-group-item">' + '<img src="' + mensaje.imagen + '" alt="Imagen" />' + '</li>');
+                    } else if (mensaje.video) {
+                        contenedorMensajes.append('<li class="list-group-item">' + '<iframe src="' + mensaje.video + '"></iframe>' + '</li>');
+                    } else {
+                        contenedorMensajes.append('<li class="list-group-item">' + mensaje.texto + '</li>');
                     }
-
-                      for (var i = 0; i < mensajes.length; i++) {
-                        obtenerMensajes(mensajes[i]);
-                      }
                 }
-            });
-        }, 5000);
-
+            }
     });
 }
