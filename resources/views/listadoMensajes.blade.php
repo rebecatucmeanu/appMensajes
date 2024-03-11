@@ -9,7 +9,7 @@
 
     </div>
 
-    <input type="text" id="textoUsuario" name="textoUsuario" />
+    <input id="texto" type="text" id="textoUsuario" name="textoUsuario" />
 
     <div class="card" style="width: 18rem;">
         <ul class="list-group list-group-flush" id="contenedorMensajes">

@@ -21,6 +21,16 @@ form {
 
 label {
     color: #000000;
+    box-shadow: 3px 3px 5px grey;
+    background-color: aliceblue;
+    border-radius: 3px;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+}
+
+#texto {
+    box-shadow: 3px 3px 5px grey;
+    border-radius: 3px;
 }
 
 input {
@@ -29,6 +39,15 @@ input {
     margin-top: 5px;
     margin-bottom: 10px;
     border: none;
+}
+
+input[type="submit"] {
+    box-shadow: 3px 3px 5px grey;
+}
+
+input[type="submit"]:hover {
+    background-color: #d1acee;
+    transition: ease 0.2s;
 }
 
 button {
